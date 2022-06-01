@@ -12,13 +12,12 @@ refs.galleryEl.insertAdjacentHTML(
 );
 
 function onGalleryClick(event) {
-  event.preventDefault();
   const targetClassName = event.target.classList.value;
 
   if (targetClassName !== "gallery__image") {
     return;
   }
-
+  event.preventDefault();
   const targetImageUrl = event.target.dataset.source;
 
   createImageModal(targetImageUrl);
@@ -26,12 +25,11 @@ function onGalleryClick(event) {
 
 function createImageModal(targetImageUrl) {
   const instance = basicLightbox.create(
-    `<div class="modal">
+    `
       <img
                     src="${targetImageUrl}"
-                    width="800" height="600"
             />
-    </div>`
+              `
   );
   instance.show();
 }
